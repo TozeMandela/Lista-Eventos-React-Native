@@ -3,9 +3,10 @@ import { Alert, FlatList, Text, TextInput, TouchableOpacity, View } from 'react-
 import { styles } from './homeStyles';
 import { Participant } from '../../components';
 
+
 export const Home = () => {
   const [part, setPart] = useState('');
-  const [partcipant, setParticipant] = useState(["Alice", "Bob", "Carlos", "Diana", "Bill"]);
+  const [partcipant, setParticipant] = useState<Array<string>>([]);
 
   function handleParticipantAdd () {
     console.log(part);
@@ -50,6 +51,12 @@ export const Home = () => {
           <FlatList 
             data={partcipant}
             keyExtractor={item => item}
+            ListEmptyComponent={() => (
+              
+             <Text style={styles.date}>Lista vazia</Text>
+
+            )}
+            
             renderItem={({item}) => (
               <Participant
               key={item}
@@ -57,7 +64,8 @@ export const Home = () => {
               onRemuve={() => handleRemuve(item)}
               />
             )}
-            />          
+            />    
+
         </View>
     </View>
   )
