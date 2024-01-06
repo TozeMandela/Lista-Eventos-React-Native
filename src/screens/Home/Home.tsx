@@ -5,13 +5,16 @@ import { Participant } from '../../components';
 
 export const Home = () => {
   const [part, setPart] = useState('');
-  const partcipant = ["Alice", "Bob", "Carlos", "Diana", "Bill"];
+  const [partcipant, setParticipant] = useState(["Alice", "Bob", "Carlos", "Diana", "Bill"]);
 
   function handleParticipantAdd () {
     console.log(part);
     
-    if(partcipant.includes(part)) return;
-    partcipant.push(part);
+    if(partcipant.includes(part)) return Alert.alert(`${part} exitente`, 'true');
+
+      setParticipant(oldpart =>[...oldpart, part]);
+      setPart('');
+      Alert.alert(`${part} add com sucesso`, 'true');
   }
 
   function handleRemuve (value: string) {

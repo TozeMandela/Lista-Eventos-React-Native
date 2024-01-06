@@ -27,7 +27,8 @@ export const styles = StyleSheet.create({
         backgroundColor: '#5a5a5a',
         borderRadius: 6,
         padding: 5,
-        maxWidth: '80%'
+        maxWidth: '80%',
+        color: 'white'
     },    
 
     containerBotao: {
