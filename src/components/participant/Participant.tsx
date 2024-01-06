@@ -5,10 +5,11 @@ import { styles } from './stylesParticipant'
 
 interface IpropsParticipant {
     name: string,
+    onRemuve: () => void,
 }
 
 
-export const Participant: React.FC<IpropsParticipant> = ({name}) => {
+export const Participant: React.FC<IpropsParticipant> = ({name, onRemuve}) => {
   return (
     <View style={styles.flex}> 
         <View style={styles.container}>
@@ -16,7 +17,7 @@ export const Participant: React.FC<IpropsParticipant> = ({name}) => {
                 {name}
             </Text>
         </View>
-        <TouchableOpacity style={styles.containerBotao}>
+        <TouchableOpacity style={styles.containerBotao} onPress={onRemuve}>
             <Text style={styles.botao}>
                 -
             </Text>
