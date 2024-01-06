@@ -19,11 +19,17 @@ export const Home = () => {
   }
 
   function handleRemuve (value: string) {
+
+
     Alert.alert('remover participante?', `nome do ${value}`, 
+
     [
       {
         text: 'sim',
-        onPress: () => Alert.alert('removido')
+        onPress: () => {
+          setParticipant(partcipant.filter(el=> el !== value));        
+          Alert.alert('removido')
+        }
       },
       {
         text: 'Não',
